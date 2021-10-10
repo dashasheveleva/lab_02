@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Cashe.hpp
+iostream
+-
+string
+-
+vector
+-
+ctime
+-
+
+/home/daria/CLionProjects/lab_02/sources/Cashe.cpp
+Cashe.hpp
+-
+algorithm
+-
+iostream
+-
+random
+-
+
