@@ -11,6 +11,19 @@ Cashe::Cashe() {
         bufsize.push_back(i);
     bufsize.push_back(3.0 / 2 * casheSize[2]);
 }
+void Cashe::print_experiments(const Cashe& c, std::ostream& os) {
+    os << "investigation:\n"
+       << "\ttravel_order: " << c.traverse << "\n"
+       << "\texperiments:\n";
+    for (size_t i= 0; i < c.bufsize.size(); ++i) {
+        os << "\t- experiment: \n"
+           << "\t\tnumber: " << i+1 << "\n"
+           << "\t\tinput_data:\n"
+           << "\t\t\tbuffer_size: " << c.bufsize[i] / 1024 << " Kb\n"
+           << "\t\tresults:\n"
+           << "\t\t\tduration: " << c.traverse_time[i] << " ms\n";
+    }
+}
 void Cashe::Cdirect() {
     int k;
     traverse= "direct";
@@ -73,18 +86,5 @@ void Cashe::Crandom() {
         traverse_time.push_back(static_cast <double> (end_traverse - start_traverse) / CLOCKS_PER_SEC * 1000);
         delete[] arr;
         k++;
-    }
-}
-void Cashe::print_experiments(const Cashe& c, std::ostream& os) {
-    os << "investigation:\n"
-        << "\ttravel_order: " << c.traverse << "\n"
-        << "\texperiments:\n";
-    for (size_t i = 0; i < c.bufsize.size(); ++i) {
-        os << "\t- experiment: \n"
-            << "\t\tnumber: " << i + 1 << "\n"
-            << "\t\tinput_data:\n"
-            << "\t\t\tbuffer_size: " << c.bufsize[i] / 1024 << " Kb\n"
-            << "\t\tresults:\n"
-            << "\t\t\tduration: " << c.traverse_time[i] << " ms\n";
     }
 }
