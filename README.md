@@ -132,223 +132,135 @@ cache_size['3'] = 8 mb;
 
 ### Результаты
 
-Ниже представлен формат и пример отчета:
+Ниже представлен формат отчета:
 
 ```yaml
-investigation:                                       |  investigaion:
-  travel_variant: <вариант_прохода>                  |    travel_order: "direction"
-  experiments:                                       |    experiments:
-  - experiment:                                      |    - experiment:
-      number:                                        |        number: 1
-      input_data:                                    |        input_data:
-        buffer_size: <размер_буфера>                 |          buffer_size: "1mb"
-      results:                                       |        results:
-        duration: <продолжительность>                |          duration: "1ns"
-  - experiment:                                      |    - experiment:
-      number: <номер_эксперимента>                   |        number: 2
-      input_data:                                    |        input_data:
-        buffer_size: <размер_буфера>                 |          buffer_size: "2mb"
-      results:                                       |        results:
-        duration: <продолжительность>                |          duration: "2ns"
-                                                     |
-investigation:                                       |  investigation:
-...                                                  |  ...
-```
-
-### Рекомендации
-
-При создание неиспользуемых переменных для считывание данных из буфера можно использовать аттрибут `[[maybe_unused]]`
-
-### Результаты всех исследований
-````
 investigation:
-	travel_order: direct
-	experiments:
-	- experiment: 
-		number: 1
-		input_data:
-			buffer_size: 320 Kb
-		results:
-			duration: 12.04 ms
-	- experiment: 
-		number: 2
-		input_data:
-			buffer_size: 640 Kb
-		results:
-			duration: 22.75 ms
-	- experiment: 
-		number: 3
-		input_data:
-			buffer_size: 1280 Kb
-		results:
-			duration: 44.884 ms
-	- experiment: 
-		number: 4
-		input_data:
-			buffer_size: 2560 Kb
-		results:
-			duration: 85.206 ms
-	- experiment: 
-		number: 5
-		input_data:
-			buffer_size: 5120 Kb
-		results:
-			duration: 171.277 ms
-	- experiment: 
-		number: 6
-		input_data:
-			buffer_size: 10240 Kb
-		results:
-			duration: 322.743 ms
-	- experiment: 
-		number: 7
-		input_data:
-			buffer_size: 20480 Kb
-		results:
-			duration: 641.557 ms
-	- experiment: 
-		number: 8
-		input_data:
-			buffer_size: 40960 Kb
-		results:
-			duration: 1290.45 ms
-	- experiment: 
-		number: 9
-		input_data:
-			buffer_size: 81920 Kb
-		results:
-			duration: 2567.04 ms
-	- experiment: 
-		number: 10
-		input_data:
-			buffer_size: 98304 Kb
-		results:
-			duration: 3054.39 ms
+  travel_order: reverse
+  experiments:
+    - experiment:
+    number: 1
+    input_data:
+      buffer_size: 320 Kb
+    results:
+      duration: 9.726 ms
+      - experiment:
+    number: 2
+    input_data:
+      buffer_size: 640 Kb
+    results:
+      duration: 19.511 ms
+      - experiment:
+    number: 3
+    input_data:
+      buffer_size: 1280 Kb
+    results:
+      duration: 38.796 ms
+      - experiment:
+    number: 4
+    input_data:
+      buffer_size: 2560 Kb
+    results:
+      duration: 89.747 ms
+      - experiment:
+    number: 5
+    input_data:
+      buffer_size: 5120 Kb
+    results:
+      duration: 158.396 ms
+      - experiment:
+    number: 6
+    input_data:
+      buffer_size: 10240 Kb
+    results:
+      duration: 312.564 ms
+      - experiment:
+    number: 7
+    input_data:
+      buffer_size: 20480 Kb
+    results:
+      duration: 631.091 ms
+      - experiment:
+    number: 8
+    input_data:
+      buffer_size: 40960 Kb
+    results:
+      duration: 1245.61 ms
+      - experiment:
+    number: 9
+    input_data:
+      buffer_size: 81920 Kb
+    results:
+      duration: 2649.6 ms
+      - experiment:
+    number: 10
+    input_data:
+      buffer_size: 98304 Kb
+    results:
+      duration: 3140.7 ms
 investigation:
-	travel_order: reverse
-	experiments:
-	- experiment: 
-		number: 1
-		input_data:
-			buffer_size: 320 Kb
-		results:
-			duration: 9.726 ms
-	- experiment: 
-		number: 2
-		input_data:
-			buffer_size: 640 Kb
-		results:
-			duration: 19.511 ms
-	- experiment: 
-		number: 3
-		input_data:
-			buffer_size: 1280 Kb
-		results:
-			duration: 38.796 ms
-	- experiment: 
-		number: 4
-		input_data:
-			buffer_size: 2560 Kb
-		results:
-			duration: 89.747 ms
-	- experiment: 
-		number: 5
-		input_data:
-			buffer_size: 5120 Kb
-		results:
-			duration: 158.396 ms
-	- experiment: 
-		number: 6
-		input_data:
-			buffer_size: 10240 Kb
-		results:
-			duration: 312.564 ms
-	- experiment: 
-		number: 7
-		input_data:
-			buffer_size: 20480 Kb
-		results:
-			duration: 631.091 ms
-	- experiment: 
-		number: 8
-		input_data:
-			buffer_size: 40960 Kb
-		results:
-			duration: 1245.61 ms
-	- experiment: 
-		number: 9
-		input_data:
-			buffer_size: 81920 Kb
-		results:
-			duration: 2649.6 ms
-	- experiment: 
-		number: 10
-		input_data:
-			buffer_size: 98304 Kb
-		results:
-			duration: 3140.7 ms
-investigation:
-	travel_order: random
-	experiments:
-	- experiment: 
-		number: 1
-		input_data:
-			buffer_size: 320 Kb
-		results:
-			duration: 25.142 ms
-	- experiment: 
-		number: 2
-		input_data:
-			buffer_size: 640 Kb
-		results:
-			duration: 51.618 ms
-	- experiment: 
-		number: 3
-		input_data:
-			buffer_size: 1280 Kb
-		results:
-			duration: 105.315 ms
-	- experiment: 
-		number: 4
-		input_data:
-			buffer_size: 2560 Kb
-		results:
-			duration: 219.394 ms
-	- experiment: 
-		number: 5
-		input_data:
-			buffer_size: 5120 Kb
-		results:
-			duration: 497.149 ms
-	- experiment: 
-		number: 6
-		input_data:
-			buffer_size: 10240 Kb
-		results:
-			duration: 1330.52 ms
-	- experiment: 
-		number: 7
-		input_data:
-			buffer_size: 20480 Kb
-		results:
-			duration: 6306.98 ms
-	- experiment: 
-		number: 8
-		input_data:
-			buffer_size: 40960 Kb
-		results:
-			duration: 4693.05 ms
-	- experiment: 
-		number: 9
-		input_data:
-			buffer_size: 81920 Kb
-		results:
-			duration: 10329.5 ms
-	- experiment: 
-		number: 10
-		input_data:
-			buffer_size: 98304 Kb
-		results:
-			duration: 12675.8 ms
-````
+  travel_order: random
+  experiments:
+    - experiment:
+    number: 1
+    input_data:
+      buffer_size: 320 Kb
+    results:
+      duration: 25.142 ms
+      - experiment:
+    number: 2
+    input_data:
+      buffer_size: 640 Kb
+    results:
+      duration: 51.618 ms
+      - experiment:
+    number: 3
+    input_data:
+      buffer_size: 1280 Kb
+    results:
+      duration: 105.315 ms
+      - experiment:
+    number: 4
+    input_data:
+      buffer_size: 2560 Kb
+    results:
+      duration: 219.394 ms
+      - experiment:
+    number: 5
+    input_data:
+      buffer_size: 5120 Kb
+    results:
+      duration: 497.149 ms
+      - experiment:
+    number: 6
+    input_data:
+      buffer_size: 10240 Kb
+    results:
+      duration: 1330.52 ms
+      - experiment:
+    number: 7
+    input_data:
+      buffer_size: 20480 Kb
+    results:
+      duration: 6306.98 ms
+      - experiment:
+    number: 8
+    input_data:
+      buffer_size: 40960 Kb
+    results:
+      duration: 4693.05 ms
+      - experiment:
+    number: 9
+    input_data:
+      buffer_size: 81920 Kb
+    results:
+      duration: 10329.5 ms
+      - experiment:
+    number: 10
+    input_data:
+      buffer_size: 98304 Kb
+    results:
+      duration: 12675.8 ms                              
+```                                         
+
 ![Results](result.jpg)

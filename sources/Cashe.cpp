@@ -19,7 +19,7 @@ void Cashe::print_experiments(const Cashe& c, std::ostream& os) {
         os << "\t- experiment: \n"
            << "\t\tnumber: " << i+1 << "\n"
            << "\t\tinput_data:\n"
-           << "\t\t\tbuffer_size: " << c.bufsize[i] / 1024 << " Kb\n"
+           << "\t\t\tbuffer_size: " << c.bufsize[i] / Kb << " Kb\n"
            << "\t\tresults:\n"
            << "\t\t\tduration: " << c.traverse_time[i] << " ms\n";
     }
@@ -34,12 +34,12 @@ void Cashe::Cdirect() {
         for (size_t j= 0; j < i/4; j += 16)
             k= arr[j];
         clock_t start= clock();
-        for (size_t n= 0; n < 1000; n++) {
+        for (size_t n= 0; n < iter; n++) {
             for (size_t j= 0; j < i/4; j += 16)
                 k= arr[j];
         }
         clock_t end= clock();
-        traverse_time.push_back(static_cast <double> (end-start) / CLOCKS_PER_SEC * 1000);
+        traverse_time.push_back(static_cast <double> (end-start) / CLOCKS_PER_SEC * iter);
         delete[] arr;
         k++;
     }
@@ -54,12 +54,12 @@ void Cashe::Creverse() {
         for (size_t j= i/4; j > 0; j -= 16)
             k= arr[j - 1];
         clock_t start= clock();
-        for (size_t n= 0; n < 1000; n++) {
+        for (size_t n= 0; n < iter; n++) {
             for (size_t j= i/4; j > 0; j -= 16)
                 k= arr[j - 1];
         }
         clock_t end= clock();
-        traverse_time.push_back(static_cast <double> (end - start) / CLOCKS_PER_SEC * 1000);
+        traverse_time.push_back(static_cast <double> (end - start) / CLOCKS_PER_SEC * iter);
         delete[] arr;
         k++;
     }
@@ -77,13 +77,13 @@ void Cashe::Crandom() {
             rand_values.push_back(j);
         }
         random_shuffle(rand_values.begin(), rand_values.end());
-        clock_t start = clock();
-        for (size_t n= 0; n < 1000; n++) {
+        clock_t start= clock();
+        for (size_t n= 0; n < iter; n++) {
             for (const auto& index : rand_values)
                 k= arr[index];
         }
         clock_t end= clock();
-        traverse_time.push_back(static_cast <double> (end - start) / CLOCKS_PER_SEC * 1000);
+        traverse_time.push_back(static_cast <double> (end - start) / CLOCKS_PER_SEC * iter);
         delete[] arr;
         k++;
     }

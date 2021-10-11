@@ -12,6 +12,8 @@ using namespace std;
 
 class Cashe {
 private:
+    size_t iter= 1000;
+    int Kb= 1024;
     string traverse;               // способ обхода
     vector <double> traverse_time; // кол-во экспериментов
     vector <size_t> bufsize;       // объём буфера
