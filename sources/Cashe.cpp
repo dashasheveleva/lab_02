@@ -33,13 +33,13 @@ void Cashe::Cdirect() {
         int* arr= new int[i/4];
         for (size_t j= 0; j < i/4; j += 16)
             k= arr[j];
-        clock_t start_traverse= clock();
+        clock_t start= clock();
         for (size_t n= 0; n < 1000; n++) {
             for (size_t j= 0; j < i/4; j += 16)
                 k= arr[j];
         }
-        clock_t end_traverse= clock();
-        traverse_time.push_back(static_cast <double> (end_traverse-start_traverse) / CLOCKS_PER_SEC * 1000);
+        clock_t end= clock();
+        traverse_time.push_back(static_cast <double> (end-start) / CLOCKS_PER_SEC * 1000);
         delete[] arr;
         k++;
     }
@@ -53,13 +53,13 @@ void Cashe::Creverse() {
         int* arr= new int[i/4];
         for (size_t j= i/4; j > 0; j -= 16)
             k= arr[j - 1];
-        clock_t start_traverse= clock();
+        clock_t start= clock();
         for (size_t n= 0; n < 1000; n++) {
             for (size_t j= i/4; j > 0; j -= 16)
                 k= arr[j - 1];
         }
-        clock_t end_traverse= clock();
-        traverse_time.push_back(static_cast <double> (end_traverse - start_traverse) / CLOCKS_PER_SEC * 1000);
+        clock_t end= clock();
+        traverse_time.push_back(static_cast <double> (end - start) / CLOCKS_PER_SEC * 1000);
         delete[] arr;
         k++;
     }
@@ -77,13 +77,13 @@ void Cashe::Crandom() {
             rand_values.push_back(j);
         }
         random_shuffle(rand_values.begin(), rand_values.end());
-        clock_t start_traverse = clock();
+        clock_t start = clock();
         for (size_t n= 0; n < 1000; n++) {
             for (const auto& index : rand_values)
                 k= arr[index];
         }
-        clock_t end_traverse= clock();
-        traverse_time.push_back(static_cast <double> (end_traverse - start_traverse) / CLOCKS_PER_SEC * 1000);
+        clock_t end= clock();
+        traverse_time.push_back(static_cast <double> (end - start) / CLOCKS_PER_SEC * 1000);
         delete[] arr;
         k++;
     }
