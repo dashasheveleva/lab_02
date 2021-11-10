@@ -11,6 +11,11 @@ Cashe::Cashe() {
         bufsize.push_back(i);
     bufsize.push_back(3.0 / 2 * casheSize[2]);
 }
+Cashe::~Cashe() {
+    traverse_time.clear();
+    bufsize.clear();
+    casheSize.clear();
+}
 void Cashe::print_experiments(const Cashe& c, std::ostream& os) {
     os << "investigation:\n"
        << "\ttravel_order: " << c.traverse << "\n"
